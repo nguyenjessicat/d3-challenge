@@ -28,6 +28,9 @@ d3.csv("assets/data/data.csv").then(function(hcData) {
     hcData.forEach(function(data) {
       data.age = +data.age;
       data.smokes = +data.smokes;
+      data.poverty = +data.poverty;
+      data.healthcare = +data.healthcare;
+      data.obesity = +data.obesity;
     });
 
     // Step 2: Create scale functions
@@ -72,8 +75,8 @@ d3.csv("assets/data/data.csv").then(function(hcData) {
     .enter()
     .append('text')
     .text(d =>d.abbr)
-    .attr('font-size',8)//font size
-    .attr('dx', d=> xLinearScale(d.age))//positions text towards the left of the center of the circle
+    .attr('font-size',8)
+    .attr('dx', d=> xLinearScale(d.age))
     .attr('dy',d => yLinearScale(d.smokes))
     .classed("stateText", true);
     
